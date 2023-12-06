@@ -1,6 +1,12 @@
 #include <iostream>
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+void func(const char * msg)
+{
+  std::cout << msg  << std::endl;
+}
+
+int main()
+{
+  func("Hellow world");
+  return 0;
 }
