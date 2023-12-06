@@ -4,4 +4,10 @@ project(Fractal_Image)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Fractal src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
+
+include_directories(src/dummy)
+
+add_library(Dummy src/dummy/dummy.cpp)
+
+target_link_libraries(${PROJECT_NAME} Dummy)

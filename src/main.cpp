@@ -1,12 +1,9 @@
 #include <iostream>
+#include "dummy/dummy.h"
 
-void func(const char * msg)
-{
-  std::cout << msg  << std::endl;
-}
 
 int main()
 {
-  func("Hellow world");
+  std::cout << func()  << std::endl;
   return 0;
 }

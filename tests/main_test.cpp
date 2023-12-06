@@ -1,9 +1,11 @@
 #include <gtest/gtest.h>
-//#include "../src/main.cpp"
+#include "../src/dummy/dummy.h"
 
 TEST(BaseTest, BaseSub1Test)
 {
-  ASSERT_EQ(1, 1);
+  auto funcStr{"Hello world!"};
+  auto res {func()};
+  EXPECT_STREQ(res, funcStr);
 }
 
 int main(int argc, char **argv)
