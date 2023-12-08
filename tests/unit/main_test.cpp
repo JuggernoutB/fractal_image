@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/dummy/dummy.h"
+#include "../../src/dummy/dummy.h"
 
 TEST(BaseTest, BaseSub1Test)
 {
