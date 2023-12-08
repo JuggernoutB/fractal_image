@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(Fractal_Image)
+set(PROJECT_NAME FractalImage)
+
+project(${PROJECT_NAME})
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+set(prj-include-base
+  ${PROJECT_SOURCE_DIR}/dummy
+)
 
-include_directories(src/dummy)
+add_executable(${PROJECT_NAME}
+  src/main.cpp
+  src/dummy/dummy.cpp
+)
 
-add_library(Dummy src/dummy/dummy.cpp)
-
-target_link_libraries(${PROJECT_NAME} Dummy)
