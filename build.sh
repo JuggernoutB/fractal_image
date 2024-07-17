@@ -35,7 +35,12 @@ cd BUILD
 EXECUTABLE_PATH="./$PROJECT_NAME"
 
 # Run CMake to configure the project
-cmake .. -DPROJECT_NAME=$PROJECT_NAME
+if command -v ninja > /dev/null 2>&1; then
+	cmake -GNinja .. -DPROJECT_NAME=$PROJECT_NAME
+else
+    echo "Ninja is not installed."
+	cmake .. -DPROJECT_NAME=$PROJECT_NAME
+fi
 
 # Build the project
 cmake --build .
