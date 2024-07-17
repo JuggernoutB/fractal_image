@@ -11,7 +11,12 @@ mkdir -p BUILD
 cd BUILD
 
 # Run CMake to configure the project
-cmake -G "MinGW Makefiles" ..
+if command -v ninja > /dev/null 2>&1; then
+	cmake -GNinja ..
+else
+    echo "Ninja is not installed."
+	cmake ..
+fi
 
 # Build tests
 mingw32-make
