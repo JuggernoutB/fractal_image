@@ -5,8 +5,33 @@ on:
     branches: [unit_tests]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install MinGW
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mingw-w64
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v1
+        with:
+          cmake-version: '3.21.1'
+
+      - name: Build the project
+        run: |
+          cd tests
+          chmod +x build_run_test.sh  # Make sure the script is executable
+          ./build_run_test.sh
+
   build:
     runs-on: ubuntu-latest
+
+    needs: test
 
     steps:
       - name: Checkout code
@@ -24,6 +49,5 @@ jobs:
     
       - name: Build the project
         run: |
-          ls
           chmod +x build.sh  # Make sure the script is executable
           ./build.sh
