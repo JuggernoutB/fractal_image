@@ -3,7 +3,7 @@
 
 TEST(BaseTest, BaseSub1Test)
 {
-  auto funcStr{"Hello world!"};
+  auto funcStr{"Hello world!1"};
   auto res {func()};
   EXPECT_STREQ(res, funcStr);
 }
