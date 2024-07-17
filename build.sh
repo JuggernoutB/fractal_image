@@ -35,7 +35,7 @@ cd BUILD
 EXECUTABLE_PATH="./$PROJECT_NAME"
 
 # Run CMake to configure the project
-cmake -G "MinGW Makefiles" .. -DPROJECT_NAME=$PROJECT_NAME
+cmake .. -DPROJECT_NAME=$PROJECT_NAME
 
 # Build the project
 cmake --build .
