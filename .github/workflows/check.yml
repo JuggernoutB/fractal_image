@@ -1,0 +1,24 @@
+name: Fractal project
+
+on:
+  push:
+    branches: [unit_tests]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v1
+        with:
+          cmake-version: '3.21.1'
+    
+      - name: Build the project
+        run: |
+          ls
+          chmod +x build.sh  # Make sure the script is executable
+          ./build.sh
