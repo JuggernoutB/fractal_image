@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(PROJECT_NAME FractalImage)
+# Check if the PROJECT_NAME is set, otherwise use a default value
+if(NOT DEFINED PROJECT_NAME)
+    set(PROJECT_NAME "DefaultProjectName")
+endif()
+
+# Print the custom parameter
+message(STATUS "PROJECT_NAME is set to: ${PROJECT_NAME}")
 
 project(${PROJECT_NAME})
 
