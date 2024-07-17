@@ -13,10 +13,10 @@ cd BUILD
 if command -v ninja > /dev/null 2>&1; then
 	cmake -GNinja ..
 	ninja all
-	ctest --output-on-failure
 else
     echo "Ninja is not installed."
 	cmake ..
 	make
-	ctest --output-on-failure
 fi
+
+ctest --output-on-failure
