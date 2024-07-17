@@ -1,5 +1,4 @@
 #!/bin/bash
-cd tests
 
 # Remove the BUILD directory if it exists
 if [ -d "BUILD" ]; then
@@ -10,16 +9,14 @@ fi
 mkdir -p BUILD
 cd BUILD
 
-# Run CMake to configure the project
+# Build and run tests
 if command -v ninja > /dev/null 2>&1; then
 	cmake -GNinja ..
+	ninja all
+	ninja test
 else
     echo "Ninja is not installed."
 	cmake ..
+	make
+	ctest -v
 fi
-
-# Build tests
-mingw32-make
-
-#Run tests
-ctest -v
