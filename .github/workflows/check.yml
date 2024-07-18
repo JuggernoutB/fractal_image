@@ -12,6 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.1.7
 
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ lcov ninja-build python3-pip
+          pip3 install gcovr
+
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v2.0.2
         with:
