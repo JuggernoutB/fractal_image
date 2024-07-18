@@ -19,4 +19,6 @@ else
 	make
 fi
 
-ctest --output-on-failure
+ctest --output-on-failure 2>&1 | tee unit_test_log.txt
+
+cmake --build . --target coverage
