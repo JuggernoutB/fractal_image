@@ -5,6 +5,22 @@ on:
     branches: [unit_tests]
 
 jobs:
+  format-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
+
+      - name: Install clang-format
+        run: sudo apt-get install -y clang-format
+
+      - name: Print clnag-format version
+        run: clang-format --version
+
+      - name: Run clang-format
+        run: clang-format --dry-run --Werror **/*.cpp **/*.h
+
   test:
     runs-on: ubuntu-latest
 
