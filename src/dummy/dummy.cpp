@@ -1,8 +1,5 @@
-#include <iostream>
 #include "dummy.h"
 
-const char * func()
-{
-  return "Hello world!";
-}
+#include <iostream>
 
+const char *func() { return "Hello world!"; }

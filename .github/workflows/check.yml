@@ -5,7 +5,7 @@ on:
     branches: [unit_tests]
 
 jobs:
-  format-check:
+  clang-format:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,14 +18,13 @@ jobs:
           sudo apt-get install -y clang-format
           clang-format --version
 
-      - name: Print clnag-format version
-        run: clang-format --version
-
       - name: Run clang-format
-        run: clang-format --dry-run --Werror **/*.cpp
+        run: clang-format --dry-run --Werror src/**/*.cpp src/**/*.h
 
   test:
     runs-on: ubuntu-latest
+
+    needs: clang-format
 
     steps:
       - name: Checkout code

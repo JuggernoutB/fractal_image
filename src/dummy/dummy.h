@@ -1,1 +1,1 @@
-const char * func();
+const char *func();
