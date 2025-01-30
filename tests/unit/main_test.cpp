@@ -8,6 +8,13 @@ TEST(BaseTest, BaseSub1Test)
   EXPECT_STREQ(res, funcStr);
 }
 
+TEST(BaseTest, BaseSub2Test)
+{
+  auto funcStr{"Hello world!"};
+  auto res {func()};
+  EXPECT_STREQ(res, funcStr);
+}
+
 int main(int argc, char **argv)
 {
   testing::InitGoogleTest(&argc, argv);
